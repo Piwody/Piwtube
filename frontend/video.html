@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reproduciendo · PiwTube</title>
+  <link rel="stylesheet" href="css/styles.css?v=3">
+  <script type="module" src="js/player.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <img class="brand__logo" src="img/logo.png" alt="" width="32" height="32">
+      <span>PiwTube</span>
+    </a>
+    <form class="search" role="search" action="index.html" method="get">
+      <label for="search" class="sr-only">Buscar videos</label>
+      <input id="search" name="search" type="search" placeholder="Buscar videos…" autocomplete="off">
+    </form>
+  </header>
+
+  <main class="watch">
+    <section class="watch__player" id="player-box" aria-label="Reproductor">
+      <video id="player" controls playsinline preload="metadata"></video>
+    </section>
+
+    <section class="watch__info" aria-labelledby="title">
+      <h1 id="title" class="watch__title skeleton">&nbsp;</h1>
+      <div id="meta" class="watch__meta skeleton">&nbsp;</div>
+      <div class="desc-box">
+        <p id="description" class="watch__desc is-collapsed"></p>
+        <button id="toggle-desc" class="link-btn" type="button" aria-expanded="false" hidden>Mostrar más</button>
+      </div>
+    </section>
+
+    <section class="comments" aria-labelledby="comments-title">
+      <h2 id="comments-title">Comentarios <span id="comments-count" class="count">0</span></h2>
+
+      <form id="comment-form" class="comment-form" novalidate>
+        <label for="author" class="sr-only">Tu nombre</label>
+        <input id="author" class="field" name="author" maxlength="50" placeholder="Tu nombre" autocomplete="nickname" required>
+
+        <label for="content" class="sr-only">Comentario</label>
+        <textarea id="content" class="field" name="content" maxlength="500" rows="3" placeholder="Escribe un comentario…" required></textarea>
+
+        <div class="comment-form__footer">
+          <span id="char-count" class="char-count">0/500</span>
+          <button id="submit-comment" class="btn" type="submit">Comentar</button>
+        </div>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <ul id="comments" class="comment-list"></ul>
+    </section>
+
+    <aside class="watch__aside" aria-labelledby="recs-title">
+      <div class="section-head">
+        <h2 id="recs-title">Recomendados</h2>
+        <button id="reshuffle" class="btn btn--ghost btn--icon" type="button" aria-label="Otras recomendaciones" title="Otras recomendaciones">↻</button>
+      </div>
+      <ol id="recs" class="rec-list"></ol>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <p>PiwTube - Proyecto de Programación Web</p>
+  </footer>
+</body>
+</html>
